@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="icon" href="pics/murica.png">
+    <title>Title</title>
+</head>
+
+<body>
+
+
+    <div id="showcase">
+        <div id="title" class="m-auto text-center px-2 py-5"> <i class="fas fa-globe"></i> World 101 for Muricans <i
+                class="fas fa-globe"></i></div>
+    </div>
+
+    <div id="buttons" class="container mt-5 d-flex justify-content-center">
+        <div class="btn-group d-flex flex-row flex-wrap" role="group">
+            <button type="button" class="btn btn-primary category" value="Temperature">Temperature <i
+                    class="fas fa-thermometer-half"></i> </button>
+            <button type="button" class="btn btn-primary category" value="Weight">Weight <i
+                    class="fas fa-weight"></i></button>
+            <button type="button" class="btn btn-primary category" value="Distance">Distance <i
+                    class="fas fa-road"></i></button>
+            <button type="button" class="btn btn-primary category" value="Speed">Speed <i
+                    class="fas fa-tachometer-alt"></i></button>
+        </div>
+    </div>
+
+
+
+    <div class="d-flex flex-row justify-content-center align-items-baseline mr-5">
+        <h3 class="text-center mt-5" id="current-category">Temperature </h3><i id="current-symbol"
+            class="fas fa-thermometer-half"></i>
+    </div>
+
+
+    <div id="input" class="container d-flex justify-content-between mt-5 col-12 col-md-8 px-md-0">
+        <div class="form-group col-5 d-flex flex-row align-content-center px-0">
+            <div class="col-9"><input type="text" id="input1" class="form-control form-control-lg ">
+            </div>
+            <div class="col-2 unit pt-2 pl-1" id="unit1">F°</div>
+        </div>
+
+        <div class="col-1 d-flex justify-content-center p-0">
+            <div class="mx-2">
+                <p class="py-0 my-0"><i class="fas fa-arrow-right"></i></p>
+                <p class="py-0 my-0"><i class="fas fa-arrow-left"></i></p>
+            </div>
+        </div>
+
+        <div class="form-group col-5 offset-1 d-flex flex-row align-content-center px-0">
+            <div class="col-9"><input type="text" id="input2" class="form-control form-control-lg ">
+            </div>
+            <div class="col-2 unit pt-2 pl-1" id="unit2">C°</div>
+        </div>
+    </div>
+
+    <div id="units" class="container d-flex mt-1 col-12 col-md-8 px-0">
+        <div class="col-5 px-md-0">
+            <div class="btn-group" id="units-group1" role="group">
+                <button type="button" class="btn btn-sm btn-primary p-1 unit-selector" value="F°">F°</button>
+            </div>
+        </div>
+
+
+        <div class="col-5 offset-2 px-md-0">
+            <div class="btn-group" id="units-group2" role="group">
+                <button type="button" class="btn btn-sm btn-primary p-1 unit-selector" value="C°">C°</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="error" class="text-center mt-5 alert alert-danger container col-8 col-md-4 d-none">
+        Please enter valid numbers
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="js/utilities.js"> </script>
+    <script src="js/conversions.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
