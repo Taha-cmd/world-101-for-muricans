@@ -4,15 +4,43 @@ function getTargetInputField(e) {
 		: document.getElementById("input1");
 }
 
-const americanWightUnits = ["gr", "dr", "oz", "lb"];
+const americanWightUnits = ["gr", "oz", "lb"];
+const SIWeightUnits = ["mg", "g", "kg", "t"];
+
+const americanTemperatureUnits = ["F°"];
+const SITemperatureUnits = ["C°"];
+
+const SILengthUnits = ["mm", "cm", "m", "km"];
+const americanLengthUnits = ["in", "ft", "yd", "ml"];
 
 function makeAmericanWeightUnits() {
 	const americanWightUnitsSelectors = americanWightUnits.map(makeUnitSelector);
-	console.log(americanWightUnitsSelectors);
+	return americanWightUnitsSelectors;
 }
 
 function makeSIWeightUnits() {
-	const g = makeUnitSelector("g");
+	const SIWightUnitsSelectors = SIWeightUnits.map(makeUnitSelector);
+	return SIWightUnitsSelectors;
+}
+
+function makeAmericanTemperatureUnits() {
+	const americanTemperatureUnitsSelectors = americanTemperatureUnits.map(makeUnitSelector);
+	return americanTemperatureUnitsSelectors;
+}
+
+function makeSITemperatureUnits() {
+	const SITemperatureUnitsSelectors = SITemperatureUnits.map(makeUnitSelector);
+	return SITemperatureUnitsSelectors;
+}
+
+function makeAmericanLengthUnits(){
+	const americanLengthUnitsSelectors = americanLengthUnits.map(makeUnitSelector);
+	return americanLengthUnitsSelectors;
+}
+
+function makeSILengthUnits(){
+	const SILengthUnitsSelectors = SILengthUnits.map(makeUnitSelector);
+	return SILengthUnitsSelectors;
 }
 
 function makeUnitSelector(value) {
@@ -23,4 +51,9 @@ function makeUnitSelector(value) {
 	button.innerText = value;
 
 	return button;
+}
+
+function triggerConvert() {
+	const keyup = new Event("keyup");
+	inputFields.forEach((field) => field.dispatchEvent(keyup));
 }
