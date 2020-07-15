@@ -13,19 +13,17 @@ const digits = /^(-?[0-9]+(\.[0-9]*)?)/;
 buttons.forEach((button) => button.addEventListener("click", updateDisplay));
 buttons.forEach((button) => button.addEventListener("click", updateUnitsList));
 inputFields.forEach((field) => field.addEventListener("keyup", convert));
-unitSelectors.forEach((selector) =>
-	selector.addEventListener("click", updateUnits)
-);
+unitSelectors.forEach((selector) => selector.addEventListener("click", updateUnits));
 
 function updateDisplay(e) {
 	// extract values from click event
 	let category = null;
 	let symbol = null;
 
-	if (buttons.includes(e.target)) {
+	if (buttons.includes(e.target)) { // if button itself was clicked
 		category = e.target.attributes.value.value;
 		symbol = e.target.children[0].attributes.class.value;
-	} else {
+	} else { // if the symbol in the button was clicked
 		category = e.target.parentElement.attributes.value.value;
 		symbol = e.target.parentElement.children[0].attributes.class.value;
 	}
@@ -78,13 +76,21 @@ function updateUnitsList(e) {
 }
 
 function updateUnits(e) {
+	let inputField;
 	if (e.target.parentElement.attributes.id.value == "units-group1")
+	{
 		unit1.innerText = e.target.attributes.value.value;
-	else unit2.innerText = e.target.attributes.value.value;
-
+		inputField = document.querySelector('#input2');
+	}
+	else
+	{
+		unit2.innerText = e.target.attributes.value.value;
+		inputField = document.querySelector('#input1');
+	}
+		
 	if (unit1.innerText != "" && unit2.innerText != "") {
 		error.classList.add("d-none");
-		triggerConvert();
+		triggerConvert(inputField);
 	}
 }
 
@@ -146,16 +152,16 @@ function convert(e) {
 
 		case "Length":
 			switch(sourceUnit){
-				case "in": break;
-				case 'ft': break;
-				case 'yd': break;
-				case 'ml': break;
+				case "in": target.value = InchToSI(value, targetUnit); break;
+				case 'ft': target.value = FeetToSI(value, targetUnit); break;
+				case 'yd': target.value = YardToSI(value, targetUnit); break;
+				case 'ml': target.value = MileToSI(value, targetUnit); break;
 				default:
 					switch(targetUnit){
-						case 'in': break;
-						case 'ft': break;
-						case 'yd': break;
-						case 'ml': break;
+						case 'in': target.value = SILengthToInch(value, sourceUnit); break;
+						case 'ft': target.value = SILengthToFeet(value, sourceUnit); break;
+						case 'yd': target.value = SILengthToYard(value, sourceUnit); break;
+						case 'ml': target.value = SILengthToMile(value, sourceUnit); break;
 					}
 					break;
 			}

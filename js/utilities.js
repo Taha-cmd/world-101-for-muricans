@@ -53,7 +53,8 @@ function makeUnitSelector(value) {
 	return button;
 }
 
-function triggerConvert() {
+function triggerConvert(inputField) {
 	const keyup = new Event("keyup");
-	inputFields.forEach((field) => field.dispatchEvent(keyup));
+	//inputFields.forEach((field) => field.dispatchEvent(keyup));
+	inputField.dispatchEvent(keyup);
 }
